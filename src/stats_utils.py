@@ -18,7 +18,7 @@ def analyser_ventes(transactions):
     Retourne un dictionnaire structuré avec tous les résultats.
     """
     # Nettoyage : on ignore les valeurs négatives ou nulles (erreurs de saisie)
-    transactions_valides = [t for t in transactions if t > 0]
+    transactions_valides = [t for t in transactions if isinstance(t, (int, float)) and t > 0]
 
     if not transactions_valides:
         return {"erreur": "Aucune transaction valide dans la liste fournie."}
